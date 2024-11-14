@@ -55,7 +55,7 @@ feature_names = [
 st.title("HUA Predictor")
 
 # age: numerical input
-age = st.number_input("Age:", min_value=1, max_value=120, value=50)
+Age = st.number_input("Age:", min_value=1, max_value=120, value=50)
 
 # sex: categorical selection
 Gender = st.selectbox("Gender (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
@@ -66,7 +66,7 @@ FBG = st.selectbox("FBG (0=Female, 1=Male):", options=[0, 1], format_func=lambda
 BUN = st.selectbox("BUN (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
 
 # Process inputs and make predictions
-feature_values = [age, Gender, Smoke, Drink, SCII, FBG, BUN]
+feature_values = [Age, Gender, Smoke, Drink, SCII, FBG, BUN]
 features = np.array([feature_values])
 
 if st.button("Predict"):
