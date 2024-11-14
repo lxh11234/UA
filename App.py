@@ -9,35 +9,41 @@ import matplotlib.pyplot as plt
 model = joblib.load('XGBoost.pkl')
 
 # Define feature options
-gender_options = {
+Gender = {
+    0: 'NO(0)',
+    1: 'YES(1)'
+
+}
+
+
+Smoke = {
     0: 'NO(0)',
     1: 'YES(1)'
 }
 
-smoke_options = {
+Drink = {
     0: 'NO(0)',
     1: 'YES(1)'
 }
 
-drink_options = {
+SCII = {
     0: 'NO(0)',
     1: 'YES(1)'
 }
 
-scii_options = {
+
+FBG = {
     0: 'NO(0)',
     1: 'YES(1)'
 }
 
-fbg_options = {
+
+
+BUN = {
     0: 'NO(0)',
     1: 'YES(1)'
 }
 
-bun_options = {
-    0: 'NO(0)',
-    1: 'YES(1)'
-}
 
 # Define feature names
 feature_names = [
@@ -49,18 +55,18 @@ feature_names = [
 st.title("HUA Predictor")
 
 # age: numerical input
-age = st.number_input("Age:", min_value=1, max_value=120, value=50)
+Age = st.number_input("Age:", min_value=1, max_value=120, value=50)
 
 # sex: categorical selection
-gender = st.selectbox("Gender (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
-smoke = st.selectbox("Smoke (0=NO, 1=YES):", options=[0, 1], format_func=lambda x: 'NO (0)' if x == 0 else 'YES (1)')
-drink = st.selectbox("Drink (0=NO, 1=YES):", options=[0, 1], format_func=lambda x: 'NO (0)' if x == 0 else 'YES (1)')
-scii = st.selectbox("SCII (0=NO, 1=YES):", options=[0, 1], format_func=lambda x: 'NO (0)' if x == 0 else 'YES (1)')
-fbg = st.selectbox("FBG (0=NO, 1=YES):", options=[0, 1], format_func=lambda x: 'NO (0)' if x == 0 else 'YES (1)')
-bun = st.selectbox("BUN (0=NO, 1=YES):", options=[0, 1], format_func=lambda x: 'NO (0)' if x == 0 else 'YES (1)')
+Gender = st.selectbox("Gender (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
+Smoke = st.selectbox("Smoke (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
+Drink = st.selectbox("Drink (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
+SCII = st.selectbox("SCII (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
+FBG = st.selectbox("FBG (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
+BUN = st.selectbox("BUN (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
 
 # Process inputs and make predictions
-feature_values = [age, gender, smoke, drink, scii, bun, fbg]
+feature_values = [Age, Gender, Smoke, Drink, SCII, FBG, BUN]
 features = np.array([feature_values])
 
 if st.button("Predict"):
