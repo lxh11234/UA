@@ -10,8 +10,8 @@ model = joblib.load('XGBoost.pkl')
 
 # Define feature options
 Gender = {
-    0: 'NO(0)',
-    1: 'YES(1)'
+    1: 'Male(1)',
+    2: 'Female(2)'
 
 }
 
@@ -58,7 +58,7 @@ st.title("HUA Predictor")
 Age = st.number_input("Age:", min_value=1, max_value=120, value=50)
 
 # sex: categorical selection
-Gender = st.selectbox("Gender (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
+Gender = st.selectbox("Gender (1=Male, 2=Female):", options=[0, 1], format_func=lambda x: 'Female (2)' if x == 0 else 'Male (1)')
 Smoke = st.selectbox("Smoke (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
 Drink = st.selectbox("Drink (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
 SCII = st.selectbox("SCII (0=Female, 1=Male):", options=[0, 1], format_func=lambda x: 'Female (0)' if x == 0 else 'Male (1)')
